@@ -3,293 +3,170 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Bean Bar - Rebrand & Growth Roadmap</title>
+    <title>The Bean Bar - Detailed Marketing Roadmap (Oct-Jan)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <!-- Chosen Palette: Modern Coffee House -->
-    <!-- Application Structure Plan: This plan is structured as a chronological 3-month roadmap, the most intuitive way to manage a rebrand. It starts with a Strategic Overview (current situation, goals, refined audience) to set the stage. The core is the interactive monthly "Roadmap" which breaks down the complex process into manageable phases (Pre-Launch, Launch, Growth). This task-oriented flow is critical for a client executing a time-sensitive project. Supporting sections like "Growth Channels" and "Budget & KPIs" provide the tactical details needed to execute the roadmap. This structure directly addresses the user's request for a phased plan with clear monthly targets. -->
+    <!-- Application Structure Plan: The application is designed as a multi-phase strategic timeline, the most logical structure for a rebrand project. It begins with a 'Grand Strategy' section (SWOT, Goals) to establish context. The core is an interactive 'Phased Roadmap' with tabs for each month from October to January, detailing the evolving focus from foundation-building to the high-impact launch. This is followed by a new, highly-detailed 'Content & Promotions' section, which provides concrete, week-by-week examples for Instagram and delivery apps—addressing a key user request. The final 'Budget & KPIs' section uses charts to visualize the specific allocation of the tight budget and track progress against clear targets. This task-oriented, chronological flow makes a complex, long-term plan digestible and actionable. -->
     <!-- Visualization & Content Choices: 
-        - Report Info: SWOT Analysis -> Goal: Inform -> Viz: HTML/CSS 4-quadrant grid -> Interaction: None -> Justification: Provides a quick, high-level summary of the business landscape.
-        - Report Info: Rebranding timeline -> Goal: Organize/Change -> Viz: Interactive timeline/tabbed sections for each month -> Interaction: Click to reveal monthly tasks -> Justification: Breaks down a complex 3-month project into actionable steps, preventing overwhelm. -> Library: Vanilla JS.
-        - Report Info: Follower growth target -> Goal: Change -> Viz: Line Chart -> Interaction: Hover for monthly targets -> Justification: Visually demonstrates the growth trajectory and makes the goal tangible and motivating. -> Library: Chart.js.
-        - Report Info: Ad spend budget -> Goal: Inform/Compare -> Viz: Doughnut Chart -> Interaction: Hover for details -> Justification: Clearly shows the simple allocation of the LKR 20,000 ad budget between the two primary digital channels. -> Library: Chart.js.
+        - Report Info: SWOT Analysis -> Goal: Inform -> Viz: HTML/CSS grid -> Interaction: None -> Justification: A standard, clear way to present foundational analysis.
+        - Report Info: Multi-month plan -> Goal: Organize/Change -> Viz: Interactive monthly tabs -> Interaction: Click to reveal detailed plans for each month -> Justification: Breaks the project into manageable phases, guiding the user chronologically. -> Method: Vanilla JS.
+        - Report Info: Content schedule -> Goal: Organize -> Viz: HTML/CSS calendar grid -> Interaction: None -> Justification: A familiar and highly effective way to visualize a weekly content plan with themes and post types.
+        - Report Info: Ad budget allocation -> Goal: Inform/Compare -> Viz: Bar Chart -> Interaction: Hover for monthly spend -> Justification: Clearly shows how the LKR 20k/month budget is strategically deployed across the pre-launch and launch phases. -> Library: Chart.js.
+        - Report Info: Follower growth targets -> Goal: Change -> Viz: Line Chart -> Interaction: Hover for monthly targets -> Justification: Visually tracks the ambitious goal from the low starting point, providing motivation and a clear benchmark for success. -> Library: Chart.js.
     -->
     <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #F8F7F5; /* Light beige background */
-            color: #3D2C24; /* Dark brown text */
-        }
-        .nav-link.active, .nav-link:hover {
-            color: #A37E58; /* Muted caramel for hover/active */
-            border-bottom: 2px solid #A37E58;
-        }
-        .card {
-            background-color: #FFFFFF;
-            border-radius: 12px;
-            box-shadow: 0 4px_12px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
-        }
-        .tab-button.active {
-            background-color: #A37E58;
-            color: #FFFFFF;
-        }
-        .tab-button {
-            transition: all 0.3s ease;
-        }
-        .chart-container {
-            position: relative;
-            width: 100%;
-            max-width: 500px;
-            margin: auto;
-            height: 300px;
-        }
-        .kpi-card {
-            background: #F1EBE5;
-        }
+        body { font-family: 'Inter', sans-serif; background-color: #F9F6F2; color: #4A3F35; }
+        .nav-link.active, .nav-link:hover { color: #A87A55; border-bottom-color: #A87A55; }
+        .card { background-color: #FFFFFF; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06); }
+        .tab-button.active { background-color: #A87A55; color: #FFFFFF; }
+        .tab-button { transition: all 0.2s ease-in-out; }
+        .chart-container { position: relative; width: 100%; max-width: 600px; margin-left: auto; margin-right: auto; height: 320px; max-height: 400px; }
     </style>
 </head>
 <body class="antialiased">
 
-    <!-- Header -->
     <header class="bg-white shadow-sm sticky top-0 z-50">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <h1 class="text-2xl font-bold text-gray-800">The Bean Bar <span class="text-lg font-normal text-amber-800">| Rebrand & Growth Roadmap</span></h1>
-            <nav id="nav-menu" class="hidden md:flex space-x-8">
-                <a data-target="overview" class="nav-link active pb-1 cursor-pointer">Overview</a>
-                <a data-target="roadmap" class="nav-link pb-1 cursor-pointer">Roadmap</a>
-                <a data-target="channels" class="nav-link pb-1 cursor-pointer">Channels</a>
-                <a data-target="budget" class="nav-link pb-1 cursor-pointer">Budget & KPIs</a>
+            <h1 class="text-xl md:text-2xl font-bold text-gray-800">The Bean Bar <span class="text-base font-normal text-amber-800">| Marketing & Rebrand Plan</span></h1>
+            <nav class="hidden md:flex space-x-6 text-sm">
+                <a data-target="strategy" class="nav-link active pb-1 border-b-2 border-transparent cursor-pointer font-semibold">Strategy</a>
+                <a data-target="roadmap" class="nav-link pb-1 border-b-2 border-transparent cursor-pointer font-semibold">Roadmap</a>
+                <a data-target="content" class="nav-link pb-1 border-b-2 border-transparent cursor-pointer font-semibold">Content Plan</a>
+                <a data-target="budget" class="nav-link pb-1 border-b-2 border-transparent cursor-pointer font-semibold">Budget & KPIs</a>
             </nav>
         </div>
     </header>
 
-    <!-- Main Content -->
     <main class="container mx-auto px-6 py-8 md:py-12">
 
-        <!-- Strategic Overview Section -->
-        <section id="overview" class="content-section">
-            <h2 class="text-3xl font-bold mb-2">Strategic Overview</h2>
-            <p class="text-lg text-gray-600 mb-8">This is our game plan for successfully launching "The Bean Bar" and establishing a strong market presence in the first quarter.</p>
-            
-            <div class="card p-6 md:p-8 mb-8">
-                <h3 class="text-2xl font-bold mb-4 text-center">Current Situation (SWOT Analysis)</h3>
-                 <p class="text-center text-gray-600 mb-8 max-w-2xl mx-auto">Understanding our position is key. We have a prime location but face stiff competition and the challenge of a complete rebrand with a low starting follower count.</p>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="bg-green-50 p-4 rounded-lg">
-                        <h4 class="font-bold text-lg text-green-800">Strengths</h4>
-                        <ul class="list-disc list-inside text-green-700">
-                            <li>Prime location with high foot traffic from corporates & students.</li>
-                            <li>Captive audience within the WSO2 building.</li>
-                        </ul>
-                    </div>
-                    <div class="bg-red-50 p-4 rounded-lg">
-                        <h4 class="font-bold text-lg text-red-800">Weaknesses</h4>
-                        <ul class="list-disc list-inside text-red-700">
-                            <li>Extremely low Instagram following (48).</li>
-                            <li>Zero brand recognition for "The Bean Bar".</li>
-                            <li>Limited marketing ad budget (LKR 20k/month).</li>
-                        </ul>
-                    </div>
-                    <div class="bg-blue-50 p-4 rounded-lg">
-                        <h4 class="font-bold text-lg text-blue-800">Opportunities</h4>
-                        <ul class="list-disc list-inside text-blue-700">
-                            <li>Rebranding creates a chance for a fresh, exciting launch.</li>
-                            <li>Targeted geo-fenced ads can be highly effective.</li>
-                            <li>Potential for strong loyalty from the student/corporate demographic.</li>
-                        </ul>
-                    </div>
-                    <div class="bg-yellow-50 p-4 rounded-lg">
-                        <h4 class="font-bold text-lg text-yellow-800">Threats</h4>
-                        <ul class="list-disc list-inside text-yellow-700">
-                            <li>Direct, established competition on-site (Barista, Brown Bean).</li>
-                            <li>Customer loyalty to existing cafes.</li>
-                            <li>Market noise from many Colombo cafes.</li>
-                        </ul>
+        <!-- Grand Strategy Section -->
+        <section id="strategy" class="content-section">
+            <h2 class="text-3xl font-bold mb-2">Grand Strategy</h2>
+            <p class="text-lg text-gray-600 mb-8">A strategic overview of our market position, target audience, and primary objectives for a successful rebrand and growth period.</p>
+            <div class="grid lg:grid-cols-2 gap-8">
+                <div class="card p-6 md:p-8">
+                    <h3 class="text-2xl font-bold mb-4">SWOT Analysis</h3>
+                    <div class="space-y-4 text-sm">
+                        <div><strong class="text-green-700">Strengths:</strong> Prime location with high, concentrated foot traffic (students/corporates).</div>
+                        <div><strong class="text-red-700">Weaknesses:</strong> Near-zero social media presence (48 followers), no brand equity for "The Bean Bar," and a very limited ad budget (LKR 20k).</div>
+                        <div><strong class="text-blue-700">Opportunities:</strong> Rebrand allows for a fresh, high-impact launch. Hyper-local digital ads can be highly effective. Strong potential to build loyalty in a captive audience.</div>
+                        <div><strong class="text-yellow-700">Threats:</strong> Strong, established on-site competitors (Barista, Brown Bean). Existing customer habits are hard to break.</div>
                     </div>
                 </div>
-            </div>
-
-            <div class="card p-6 md:p-8">
-                <h3 class="text-2xl font-bold mb-4 text-center">Refined Target Audience</h3>
-                <p class="text-center text-gray-600 mb-8 max-w-2xl mx-auto">Our marketing will hyper-focus on the people who walk past our door every day.</p>
-                <div class="grid md:grid-cols-3 gap-6">
-                    <div class="text-center p-4">
-                        <div class="text-4xl mb-2">🎓</div>
-                        <h4 class="font-semibold text-lg">The Student Hustler</h4>
-                        <p class="text-sm text-gray-600">(IIT, Uni of Colombo, Design School)</p>
-                        <p class="text-xs mt-2">Needs affordable coffee, good Wi-Fi, and a place to study. Motivated by deals and combos.</p>
-                    </div>
-                    <div class="text-center p-4">
-                        <div class="text-4xl mb-2">💼</div>
-                        <h4 class="font-semibold text-lg">The Corporate Professional</h4>
-                        <p class="text-sm text-gray-600">(WSO2, HSBC)</p>
-                        <p class="text-xs mt-2">Values speed, quality, and consistency for their daily caffeine fix or a quick meeting. Appreciates loyalty perks.</p>
-                    </div>
-                    <div class="text-center p-4">
-                        <div class="text-4xl mb-2">🎨</div>
-                        <h4 class="font-semibold text-lg">The Creative Collaborator</h4>
-                        <p class="text-sm text-gray-600">(Design School, Achievers)</p>
-                        <p class="text-xs mt-2">Seeks an aesthetic, inspiring space. Likely to share their experience on social media if the vibe is right.</p>
+                <div class="card p-6 md:p-8">
+                    <h3 class="text-2xl font-bold mb-4">Target Audience</h3>
+                    <div class="space-y-3">
+                        <p><strong>🎓 The Student:</strong> (IIT, Uni of Colombo) Needs affordable fuel, a study spot, and values promotions.</p>
+                        <p><strong>💼 The Professional:</strong> (WSO2, HSBC) Needs quality, speed, and consistency for daily coffee or meetings.</p>
+                        <p><strong>🎨 The Creative:</strong> (Design School) Seeks an aesthetic vibe worthy of an Instagram post.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Roadmap Section -->
-        <section id="roadmap" class="content-section hidden">
-            <h2 class="text-3xl font-bold mb-2">The 3-Month Rebranding Roadmap</h2>
-            <p class="text-lg text-gray-600 mb-8">A phased plan to introduce and grow "The Bean Bar" brand from the ground up.</p>
-            
+        <!-- Phased Roadmap Section -->
+        <section id="roadmap" class="content-section hidden mt-12">
+            <h2 class="text-3xl font-bold mb-2">The Phased Roadmap</h2>
+            <p class="text-lg text-gray-600 mb-8">A detailed, month-by-month plan to transition from "Jumping Beans" to "The Bean Bar," starting now.</p>
             <div class="card p-6 md:p-8">
-                <div class="flex flex-col md:flex-row justify-center border-b border-gray-200 mb-6">
-                    <button class="tab-button active py-3 px-6 font-semibold w-full md:w-auto" data-tab="december">Phase 1: Pre-Launch (Dec 2025)</button>
-                    <button class="tab-button py-3 px-6 font-semibold w-full md:w-auto" data-tab="january">Phase 2: LAUNCH (Jan 2026)</button>
-                    <button class="tab-button py-3 px-6 font-semibold w-full md:w-auto" data-tab="february">Phase 3: Growth (Feb 2026)</button>
+                <div class="flex flex-wrap border-b border-gray-200 mb-6">
+                    <button class="tab-button active py-3 px-5 font-semibold" data-tab="october">Oct: Foundation</button>
+                    <button class="tab-button py-3 px-5 font-semibold" data-tab="november">Nov: Build & Tease</button>
+                    <button class="tab-button py-3 px-5 font-semibold" data-tab="december">Dec: Pre-Launch Hype</button>
+                    <button class="tab-button py-3 px-5 font-semibold" data-tab="january">Jan: THE LAUNCH</button>
                 </div>
-
-                <div id="december" class="tab-content">
-                    <h4 class="text-xl font-semibold mb-4">Focus: Build Anticipation & Prepare Assets</h4>
-                    <p class="text-gray-600 mb-6">Using the existing 'Jumping Beans' Instagram account, we'll hint at a big change without revealing the new name.</p>
-                    <ul class="list-disc list-inside space-y-3">
-                        <li><strong>Instagram Teaser Campaign:</strong> Post stories and reels with captions like "Something new is brewing...", "Getting a fresh start in 2026.", "Your coffee break is getting an upgrade."</li>
-                        <li><strong>Finalize 'The Bean Bar' Branding:</strong> Complete logo, menu design, packaging, and in-store signage.</li>
-                        <li><strong>Content Production:</strong> Conduct a photoshoot of the new menu items and cafe ambiance to have a bank of high-quality content ready for launch.</li>
-                        <li><strong>Plan Launch Week Offers:</strong> Decide on compelling offers (e.g., "First 50 Coffees Free," "25% off all week") to drive initial foot traffic.</li>
+                
+                <div id="october" class="tab-content">
+                    <h4 class="text-xl font-bold mb-2">Focus: Awaken the Account & Establish Consistency</h4>
+                    <p class="text-gray-600 mb-4">Goal is to clean up the existing 'Jumping Beans' page and start posting high-quality content regularly. No ad spend this month.</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li><strong>Profile Cleanup:</strong> Archive all old, low-quality posts for a fresh start. Update the bio to be more engaging.</li>
+                        <li><strong>Consistent Posting:</strong> Post 3 times a week (Mon, Wed, Fri) featuring your best current drinks and food.</li>
+                        <li><strong>Engage with Stories:</strong> Use polls and questions ("Espresso or Latte?") to encourage interaction.</li>
+                        <li><strong>Local Hashtag Research:</strong> Identify and start using relevant local hashtags (#ColomboFoodie, #WSO2Life, #CafeHoppingLK).</li>
                     </ul>
                 </div>
-
+                <div id="november" class="tab-content hidden">
+                    <h4 class="text-xl font-bold mb-2">Focus: Initial Growth & Begin the Teaser Campaign</h4>
+                    <p class="text-gray-600 mb-4">We'll invest a small amount in ads to grow our initial audience and start hinting that a change is coming.</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li><strong>Launch Teaser Content:</strong> Late in the month, post cryptic stories/posts: "Something new is brewing..." or "2026 is going to be a fresh start."</li>
+                        <li><strong>Run Engagement Ads (LKR 5,000):</strong> Promote your best-performing posts to a targeted audience (Age 18-45, within 2km of WSO2) to gain new followers.</li>
+                        <li><strong>Highlight Ambiance:</strong> Post photos and Reels of the cafe space, focusing on its appeal as a work/study spot.</li>
+                    </ul>
+                </div>
+                 <div id="december" class="tab-content hidden">
+                    <h4 class="text-xl font-bold mb-2">Focus: Build Maximum Anticipation</h4>
+                    <p class="text-gray-600 mb-4">This month is all about creating hype for the January 1st reveal. We ramp up ad spend significantly.</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li><strong>Daily Countdown:</strong> In the last week, use stories for a daily countdown to the rebrand.</li>
+                        <li><strong>Behind-the-Scenes Peeks:</strong> Show snippets of the new brand (a new cup, a painted wall, a menu font) without revealing the name.</li>
+                        <li><strong>Run "Secret's Out Soon" Ads (LKR 15,000):</strong> Use video ads to build curiosity, targeting the same local audience with a message of "Your coffee break is getting an upgrade. Jan 1st."</li>
+                        <li><strong>Finalize Launch Assets:</strong> Prepare all social media posts, in-store signage, and delivery app profiles for "The Bean Bar."</li>
+                    </ul>
+                </div>
                 <div id="january" class="tab-content hidden">
-                    <h4 class="text-xl font-semibold mb-4">Focus: Execute a High-Impact Launch</h4>
-                     <p class="text-gray-600 mb-6">On January 1st, we flip the switch. The goal is maximum awareness and trial within our 2km radius.</p>
-                    <ul class="list-disc list-inside space-y-3">
-                        <li><strong>Instagram Overhaul (Jan 1st):</strong>
-                            <ul class="list-['-_'] list-inside ml-4">
-                                <li>Change handle to @TheBeanBar.Colombo (or similar).</li>
-                                <li>Archive all old 'Jumping Beans' posts.</li>
-                                <li>Post 9 new, high-quality images at once to create a full, branded grid.</li>
-                                <li>Update bio with new name, location, and a call-to-action for the launch offer.</li>
-                            </ul>
-                        </li>
-                        <li><strong>Launch Geo-Targeted Ads:</strong> Run Instagram/Facebook ads promoting the launch offer, targeted specifically to people within a 2km radius of the WSO2 building with interests in coffee, universities, and corporate life.</li>
-                        <li><strong>In-Store Execution:</strong> Display new signage and actively promote launch offers to every customer.</li>
-                        <li><strong>Update Delivery Apps:</strong> Rebrand the store profile on Uber Eats & PickMe Foods. Run platform-exclusive launch deals.</li>
-                    </ul>
-                </div>
-
-                <div id="february" class="tab-content hidden">
-                    <h4 class="text-xl font-semibold mb-4">Focus: Build Community & Drive Repeat Business</h4>
-                    <p class="text-gray-600 mb-6">With the brand launched, we now focus on turning first-time visitors into loyal regulars and building our online community.</p>
-                    <ul class="list-disc list-inside space-y-3">
-                        <li><strong>Launch User-Generated Content (UGC) Campaign:</strong> Create an "Instagrammable" corner in the cafe. Run a monthly contest: "Tag @TheBeanBar.Colombo in your best photo to win a week of free coffee."</li>
-                        <li><strong>Introduce Loyalty Program:</strong> A simple "Buy 5, get 1 Free" physical or digital stamp card for in-store customers.</li>
-                        <li><strong>Micro-Influencer Outreach:</strong> Collaborate with 3-5 student/lifestyle micro-influencers from the nearby universities for a contra deal (free meal for posts/stories).</li>
-                        <li><strong>Refine Ad Campaigns:</strong> Analyze January's ad performance and optimize for conversions (delivery orders) or engagement, focusing on the best-performing audience segments.</li>
+                    <h4 class="text-xl font-bold mb-2">Focus: Execute a Flawless, High-Impact Launch</h4>
+                    <p class="text-gray-600 mb-4">On January 1st, we go live. The entire LKR 20,000 budget is deployed to drive awareness, foot traffic, and first-time orders.</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li><strong>The Great Switch (Jan 1st):</strong> Change Instagram handle, archive old posts, and upload a 9-grid of professional "The Bean Bar" content at once.</li>
+                        <li><strong>Launch Offers LIVE:</strong> Announce compelling launch week offers (e.g., "50% Off Your First Coffee," "Free Brownie with any Lunch Combo").</li>
+                        <li><strong>Full-Scale Ad Campaign (LKR 20,000):</strong> Run ads promoting the launch offers with aggressive geo-fencing (1km radius). Optimize for reach and store visits.</li>
+                        <li><strong>Update Delivery Apps:</strong> Rebrand profiles on Uber Eats & PickMe. Feature launch-exclusive deals prominently at the top of the menu.</li>
+                        <li><strong>Micro-Influencer Day:</strong> Invite 3-5 local student influencers for a free experience in the first week in exchange for posts and stories.</li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <!-- Channels Section -->
-        <section id="channels" class="content-section hidden">
-            <h2 class="text-3xl font-bold mb-2">Growth Channel Tactics</h2>
-            <p class="text-lg text-gray-600 mb-8">Specific strategies for our two most important digital storefronts.</p>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="card p-6">
-                    <h3 class="text-2xl font-bold mb-4">📸 Instagram Strategy</h3>
-                    <ul class="space-y-4">
-                        <li class="flex items-start">
-                            <span class="text-green-500 mr-3 mt-1">✔</span>
-                            <div><strong class="block">Content Pillars:</strong> Focus on A+ visuals of coffee/food, the cafe's aesthetic/vibe, behind-the-scenes action, and reposting customer content (UGC).</div>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-green-500 mr-3 mt-1">✔</span>
-                            <div><strong class="block">Hyper-Local Hashtags:</strong> Use a mix of broad (#ColomboCafes) and niche (#WSO2Life, #IITLife, #CoffeeInColombo7) hashtags to attract the right audience.</div>
-                        </li>
-                         <li class="flex items-start">
-                            <span class="text-green-500 mr-3 mt-1">✔</span>
-                            <div><strong class="block">Reels are Key:</strong> Prioritize short-form video content: latte art pours, "making of" your signature sandwich, a quick tour of the cafe. They have the highest organic reach.</div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="card p-6">
-                    <h3 class="text-2xl font-bold mb-4">🛵 Delivery App Strategy</h3>
-                    <ul class="space-y-4">
-                        <li class="flex items-start">
-                            <span class="text-green-500 mr-3 mt-1">✔</span>
-                            <div><strong class="block">Menu Engineering:</strong> Create "Student Deals," "Office Lunch Combos," and "Study Session Snacks" to appeal directly to your target audience's needs.</div>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-green-500 mr-3 mt-1">✔</span>
-                            <div><strong class="block">Run Strategic Promotions:</strong> Use the apps' built-in promotional tools like "10% off for orders over LKR 2000" or "Free delivery on Tuesdays" to boost orders during slower periods.</div>
-                        </li>
-                         <li class="flex items-start">
-                            <span class="text-green-500 mr-3 mt-1">✔</span>
-                            <div><strong class="block">Optimize for Search:</strong> Ensure your menu uses keywords like 'coffee', 'cappuccino', 'espresso', 'sandwich', 'salad' so you appear in customer searches.</div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Budget & KPIs Section -->
-        <section id="budget" class="content-section hidden">
-            <h2 class="text-3xl font-bold mb-2">Budget & KPIs</h2>
-            <p class="text-lg text-gray-600 mb-8">A lean budget requires rigorous tracking. Here's how we'll allocate the LKR 20,000 ad spend and measure our success month by month.</p>
-            
+        <!-- Content Plan Section -->
+        <section id="content" class="content-section hidden mt-12">
+            <h2 class="text-3xl font-bold mb-2">Detailed Content & Promotions Plan</h2>
+            <p class="text-lg text-gray-600 mb-8">A sample weekly schedule showing how we'll bring the strategy to life on Instagram and delivery platforms.</p>
             <div class="grid lg:grid-cols-2 gap-8">
                 <div class="card p-6">
-                     <h3 class="text-xl font-bold text-center mb-4">Monthly Ad Spend Allocation (LKR 20,000)</h3>
-                    <div class="chart-container" style="height: 250px;">
-                        <canvas id="budgetDoughnutChart"></canvas>
+                    <h3 class="text-xl font-bold mb-4 text-center">📸 Instagram Weekly Content (Launch Month)</h3>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs">
+                        <div class="border p-2 rounded-lg"><strong>Mon:</strong> Reel - "Making our Signature Iced Latte."</div>
+                        <div class="border p-2 rounded-lg"><strong>Tue:</strong> Story Poll - "Morning Meeting Fuel: Cappuccino or Americano?"</div>
+                        <div class="border p-2 rounded-lg"><strong>Wed:</strong> Carousel Post - Meet the Barista + their favorite drink.</div>
+                        <div class="border p-2 rounded-lg"><strong>Thu:</strong> Reel - A time-lapse of the cafe's morning rush.</div>
+                        <div class="border p-2 rounded-lg"><strong>Fri:</strong> Static Post - "TGIF! Treat yourself. Our Chocolate Fudge Brownie is waiting."</div>
+                        <div class="border p-2 rounded-lg"><strong>Sat:</strong> UGC Feature - Repost the best customer photo of the week.</div>
+                        <div class="border p-2 rounded-lg col-span-2 sm:col-span-3"><strong>Daily Stories:</strong> Showcasing the daily special, latte art, and positive customer reviews.</div>
                     </div>
                 </div>
-                 <div class="card p-6">
-                     <h3 class="text-xl font-bold text-center mb-4">Instagram Follower Growth Target</h3>
-                    <div class="chart-container" style="height: 250px;">
-                        <canvas id="followerGrowthChart"></canvas>
+                <div class="card p-6">
+                    <h3 class="text-xl font-bold mb-4 text-center">🛵 Delivery App Weekly Promotions</h3>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs">
+                        <div class="border p-2 rounded-lg"><strong>Mon:</strong> BOGO - "Buy One, Get One Free on all Espressos."</div>
+                        <div class="border p-2 rounded-lg"><strong>Tue:</strong> Combo - "Student Study Deal: Any Coffee + Sandwich for LKR 1200."</div>
+                        <div class="border p-2 rounded-lg"><strong>Wed:</strong> % Off - "15% off total bill for orders over LKR 2500."</div>
+                        <div class="border p-2 rounded-lg"><strong>Thu:</strong> Free Item - "Free Cookie with every Iced Tea."</div>
+                        <div class="border p-2 rounded-lg"><strong>Fri:</strong> Combo - "Corporate Lunch: 4 Coffees + 4 Pastries for LKR 4500."</div>
+                        <div class="border p-2 rounded-lg"><strong>Weekend:</strong> Free Delivery on all orders.</div>
+                        <div class="border p-2 rounded-lg col-span-2 sm:col-span-3"><strong>Always On:</strong> A small 5% discount for first-time orders on the platforms.</div>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <div class="card p-6 md:p-8 mt-8">
-                 <h3 class="text-2xl font-bold mb-4 text-center">Monthly KPIs</h3>
-                 <p class="text-center text-gray-600 mb-8 max-w-2xl mx-auto">Our targets will evolve each month, from awareness at launch to engagement and sales as the brand matures.</p>
-                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="kpi-card p-4 rounded-lg">
-                        <h4 class="font-bold text-lg text-center mb-2">Month 1: January (Launch)</h4>
-                        <ul class="text-sm space-y-2">
-                           <li><strong>IG Followers:</strong> Reach 500+</li>
-                           <li><strong>IG Engagement:</strong> 5% on launch posts</li>
-                           <li><strong>Foot Traffic:</strong> 100+ redemptions of launch offer</li>
-                           <li><strong>Delivery Orders:</strong> 50+ first-time orders</li>
-                        </ul>
-                    </div>
-                     <div class="kpi-card p-4 rounded-lg">
-                        <h4 class="font-bold text-lg text-center mb-2">Month 2: February (Growth)</h4>
-                        <ul class="text-sm space-y-2">
-                           <li><strong>IG Followers:</strong> Reach 1,000+</li>
-                           <li><strong>IG Engagement:</strong> Maintain 4-5% avg.</li>
-                           <li><strong>UGC:</strong> 20+ tagged posts from customers</li>
-                           <li><strong>Delivery Orders:</strong> 20% increase over Jan</li>
-                        </ul>
-                    </div>
-                     <div class="kpi-card p-4 rounded-lg">
-                        <h4 class="font-bold text-lg text-center mb-2">Month 3: March (Optimization)</h4>
-                        <ul class="text-sm space-y-2">
-                           <li><strong>IG Followers:</strong> Reach 1,500+</li>
-                           <li><strong>IG Engagement:</strong> Increase to 6%</li>
-                           <li><strong>Repeat Customers:</strong> 25% of sales from loyalty members</li>
-                           <li><strong>Delivery AOV:</strong> Increase Avg. Order Value by 10%</li>
-                        </ul>
-                    </div>
-                 </div>
+        <!-- Budget & KPIs Section -->
+        <section id="budget" class="content-section hidden mt-12">
+            <h2 class="text-3xl font-bold mb-2">Budget & KPIs</h2>
+            <p class="text-lg text-gray-600 mb-8">Tracking our lean ad spend and measuring what matters: follower growth and, ultimately, sales.</p>
+            <div class="grid lg:grid-cols-2 gap-8">
+                <div class="card p-6">
+                    <h3 class="text-xl font-bold text-center mb-4">Monthly Ad Spend Deployment</h3>
+                    <div class="chart-container"><canvas id="budgetBarChart"></canvas></div>
+                </div>
+                <div class="card p-6">
+                    <h3 class="text-xl font-bold text-center mb-4">Instagram Follower Growth KPIs</h3>
+                    <div class="chart-container"><canvas id="followerGrowthChart"></canvas></div>
+                </div>
             </div>
         </section>
 
@@ -307,6 +184,7 @@
                     sections.forEach(section => {
                         section.id === link.dataset.target ? section.classList.remove('hidden') : section.classList.add('hidden');
                     });
+                    window.scrollTo({ top: document.getElementById(link.dataset.target).offsetTop - 80, behavior: 'smooth' });
                 });
             });
 
@@ -324,24 +202,23 @@
             });
 
             // Budget Chart
-            const ctxDoughnut = document.getElementById('budgetDoughnutChart')?.getContext('2d');
-            if (ctxDoughnut) {
-                new Chart(ctxDoughnut, {
-                    type: 'doughnut',
+            const ctxBar = document.getElementById('budgetBarChart')?.getContext('2d');
+            if (ctxBar) {
+                new Chart(ctxBar, {
+                    type: 'bar',
                     data: {
-                        labels: ['Instagram/Facebook Ads', 'Delivery App Promotions'],
+                        labels: ['October', 'November', 'December', 'January (Launch)'],
                         datasets: [{
-                            data: [10000, 10000],
-                            backgroundColor: ['#A37E58', '#3D2C24'],
-                            borderColor: '#F8F7F5',
-                            borderWidth: 3
+                            label: 'Ad Spend (LKR)',
+                            data: [0, 5000, 15000, 20000],
+                            backgroundColor: ['#E0E0E0', '#D4BBA6', '#C8A88E', '#A87A55'],
+                            borderRadius: 4
                         }]
                     },
                     options: {
-                        responsive: true, maintainAspectRatio: false,
-                        plugins: { legend: { position: 'bottom' },
-                            tooltip: { callbacks: { label: (c) => `${c.label}: LKR ${c.raw.toLocaleString()}` }}
-                        }
+                        responsive: true, maintainAspectRatio: false, indexAxis: 'y',
+                        plugins: { legend: { display: false } },
+                        scales: { x: { ticks: { callback: (value) => `LKR ${value/1000}k` } } }
                     }
                 });
             }
@@ -352,21 +229,16 @@
                 new Chart(ctxLine, {
                     type: 'line',
                     data: {
-                        labels: ['Start', 'Jan', 'Feb', 'Mar'],
+                        labels: ['Start (Oct)', 'End of Nov', 'End of Dec', 'End of Jan'],
                         datasets: [{
                             label: 'Target Followers',
-                            data: [48, 500, 1000, 1500],
-                            borderColor: '#A37E58',
-                            backgroundColor: 'rgba(163, 126, 88, 0.2)',
-                            fill: true,
-                            tension: 0.1
+                            data: [48, 250, 500, 1200],
+                            borderColor: '#A87A55',
+                            backgroundColor: 'rgba(168, 122, 85, 0.1)',
+                            fill: true, tension: 0.2
                         }]
                     },
-                    options: {
-                        responsive: true, maintainAspectRatio: false,
-                        plugins: { legend: { display: false } },
-                        scales: { y: { beginAtZero: true } }
-                    }
+                    options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true } } }
                 });
             }
         });
@@ -374,3 +246,4 @@
 
 </body>
 </html>
+
